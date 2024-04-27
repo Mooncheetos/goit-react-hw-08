@@ -1,0 +1,39 @@
+.contactBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #8f0d13;
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 8px;
+    transition: background-color 300ms ease;
+}
+
+.contactBtn:hover,
+.contactBtn:focus {
+    background-color: #8f0d13;
+}
+
+.contactName {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.contactName>svg {
+    width: 24px;
+    margin-right: 5px;
+}
+
+.contactNumber {
+    display: flex;
+    align-items: center;
+}
+
+.contactNumber>svg {
+    width: 24px;
+    margin-right: 5px;
+}
