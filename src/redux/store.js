@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import filterReducer from "./filtersSlice";
-import contactsReducer from "./contactsSlice";
+import filterReducer from "../redux/filters/slice";
+import contactsReducer from "../redux/contacts/slice";
 import storage from "redux-persist/lib/storage";
-import { authReducer } from "./"
+import { authReducer } from "./auth/slice";
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 
 const authPersistConfig = {
