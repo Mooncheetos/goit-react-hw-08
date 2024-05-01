@@ -1,11 +1,10 @@
-import React from 'react';
+import css from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
+import toast, { Toaster } from "react-hot-toast";
 import { useId } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
-import css from './ContactForm.module.css';
+import { addContact } from "../../redux/contacts/operations";
 
 function ContactForm() {
     const initialValues = {
@@ -33,10 +32,12 @@ function ContactForm() {
 
     const handleSubmit = (values, actions) => {
         onAddContact(values);
+        toast.success("Contact added successfully");
         actions.resetForm();
     };
 
     return (
+        <>
         <Formik
             initialValues={initialValues}
             validationSchema={FeedbackSchema}
@@ -53,7 +54,20 @@ function ContactForm() {
 
                 <button className={css.formBtn} type="submit">Add contact</button>
             </Form>
-        </Formik>
+            </Formik>
+            <Toaster
+                position="bottom-center"
+                toastOptions={{
+                    style: {
+                        background: "#363636",
+                        color: "#fff",
+                    },
+                    success: {
+                        duration: 1500,
+                    },
+                }}
+            />
+            </>        
     );
 };
 
