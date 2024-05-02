@@ -16,7 +16,7 @@
 
 .formInput {
     width: 200px;
-    border: 2px solid #312c2c;
+    border: 2px solid #8f1717;
     border-radius: 8px;
     outline: transparent;
     padding: 8px;
@@ -24,7 +24,7 @@
 }
 
 .formInput:focus {
-    border-color: #742020;
+    border-color: #6b1111;
     background-color: transparent;
 }
 
@@ -41,7 +41,7 @@
     align-items: center;
     border: none;
     border-radius: 10px;
-    background-color: #701212;
+    background-color: #8f1717;
     color: #ffffff;
     font-size: 14px;
     text-transform: uppercase;
@@ -52,5 +52,5 @@
 
 .formBtn:hover,
 .formBtn:focus {
-    background-color: #701212;
+    background-color: #610606;
 }

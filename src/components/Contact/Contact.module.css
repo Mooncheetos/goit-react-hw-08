@@ -4,7 +4,7 @@
     align-items: center;
     border: none;
     border-radius: 10px;
-    background-color: #8f0d13;
+    background-color: #8f1717;
     color: #ffffff;
     font-size: 14px;
     text-transform: uppercase;
@@ -14,7 +14,7 @@
 
 .contactBtn:hover,
 .contactBtn:focus {
-    background-color: #8f0d13;
+    background-color: #8f1717;
 }
 
 .contactName {
@@ -66,13 +66,13 @@
     width: 60px;
     justify-content: center;
     align-items: center;
-    border: 2px solid #b838b8;
-    -webkit-box-shadow: 0px 0px 17px -3px rgba(83, 21, 76, 1);
-    -moz-box-shadow: 0px 0px 17px -3px rgba(83, 21, 76, 1);
-    box-shadow: 0px 0px 17px -3px rgba(83, 21, 76, 1);
+    border: 2px solid #8f1717;
+    -webkit-box-shadow: 0px 0px 17px -3px rgb(85, 13, 107, 1);
+    -moz-box-shadow: 0px 0px 17px -3px rgba(85, 13, 107, 1);
+    box-shadow: 0px 0px 17px -3px rgba(85, 13, 107, 1);
     border-radius: 10px;
     background-color: transparent;
-    color: #b838b8;
+    color: #8f1717;
     font-size: 14px;
     text-transform: uppercase;
     padding: 8px;
@@ -81,6 +81,6 @@
 
 .modalBtn:hover,
 .modalBtn:focus {
-    color: #49182ca9;
-    border-color: #470d25aa;
+    color: #672858a9;
+    border-color: #6b1111;
 }

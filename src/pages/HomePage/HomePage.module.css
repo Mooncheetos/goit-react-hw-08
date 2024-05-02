@@ -17,11 +17,11 @@
 }
 
 .link {
-    color: #921e1e;
+    color: #8f1717;
     transition: color 300ms ease-in-out;
 }
 
 .link:hover,
 .link:focus {
-    color: #bb4774a9;
+    color: #672858a9;
 }
