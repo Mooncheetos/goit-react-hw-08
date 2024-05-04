@@ -36,10 +36,10 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
     "auth/logout",
-    async (formData, thunkApi) => {
+    async (_, thunkApi) => {
         try {
-            const { data } = await instance.post("/users/logout", formData);
-            clearToken();
+            const { data } = await instance.post("/users/logout");
+            clearToken;
             return data;
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);
@@ -52,10 +52,14 @@ export const refreshUser = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const state = thunkApi.getState();
-            const token = state.auth.token;            
-            setToken(data.token);
-            const { data } = await instance.get("/users/current");
-            return data;
+            const token = state.auth.token;
+            if (token) {
+                instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+                const { data } = await instance.get("/users/current");
+                return data;
+            } else {                
+                return thunkApi.rejectWithValue("Token is missing");
+            }
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);
         }
