@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { logout, login, refreshUser, register } from "./operations";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 const INITIAL_STATE = {
     user: {
@@ -26,6 +28,7 @@ const handlePending = (state) => {
 const authSlice = createSlice({
     name: "auth",
     initialState: INITIAL_STATE,
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(register.pending, handlePending)
@@ -61,10 +64,17 @@ const authSlice = createSlice({
                 state.user = action.payload;
                 state.isRefreshing = false;
             })
-            .addCase(refreshUser.rejected, handleRejected, (state) => {
+            .addCase(refreshUser.rejected, (state) => {
                 state.isRefreshing = true;
             })            
     },
 });
 
-export const authReducer = authSlice.reducer;
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, authSlice.reducer);
+
+export const authReducer = persistedReducer;

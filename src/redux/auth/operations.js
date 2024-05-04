@@ -39,7 +39,7 @@ export const logout = createAsyncThunk(
     async (formData, thunkApi) => {
         try {
             const { data } = await instance.post("/users/logout", formData);
-            setToken(data.token);
+            clearToken();
             return data;
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);
