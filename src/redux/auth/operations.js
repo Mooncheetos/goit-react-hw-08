@@ -53,13 +53,12 @@ export const refreshUser = createAsyncThunk(
         try {
             const state = thunkApi.getState();
             const token = state.auth.token;
-            if (token) {
-                instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+            if (!token) return thunkApi.rejectWithValue(null);
+            setToken(token);            
                 const { data } = await instance.get("/users/current");
-                return data;
-            } else {                
-                return thunkApi.rejectWithValue("Token is missing");
-            }
+            return data;     
+            
         } catch (e) {
             return thunkApi.rejectWithValue(e.message);
         }
